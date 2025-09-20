@@ -1,3 +1,11 @@
+# Grupo - Integrantes
+
+| Nome | R.A. |
+| ---- | ---- |
+| André Solano F. R. Maiolini | 19.02012-0 |
+| Durval Consorti Soranz de Barros Santos | 22.01097-0 |
+
+--- 
 # lembretes_com_favoritos
 
 A new Flutter project.
@@ -14,3 +22,5 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+--- 
