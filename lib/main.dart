@@ -7,12 +7,37 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Meus Lembretes',
-      home: const Center(child: Text('Hello, Lembretes')),
+    return MaterialApp(title: 'Meus Lembretes', home: const InputWidget());
+  }
+}
+
+class InputWidget extends StatefulWidget {
+  const InputWidget({super.key});
+
+  @override
+  State<InputWidget> createState() => _InputWidgetState();
+}
+
+class _InputWidgetState extends State<InputWidget> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: 'Digite seu novo lembrete',
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
