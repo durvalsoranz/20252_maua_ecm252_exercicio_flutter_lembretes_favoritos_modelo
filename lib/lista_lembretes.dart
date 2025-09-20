@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 
 class ListaLembretes extends StatelessWidget {
-  const ListaLembretes({super.key, required this.lembretes});
-
   final List<String> lembretes;
+  final void Function(int) onRemoverLembrete;
+
+  const ListaLembretes({
+    required this.lembretes,
+    required this.onRemoverLembrete,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -18,8 +23,16 @@ class ListaLembretes extends StatelessWidget {
       itemBuilder: (context, index) {
         final lembrete = lembretes[index];
         return Card(
-          margin: const EdgeInsets.symmetric(vertical: 4),
-          child: ListTile(title: Text(lembrete)),
+          margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 4),
+          child: ListTile(
+            title: Text(lembrete),
+            trailing: IconButton(
+              onPressed: () {
+                onRemoverLembrete(index);
+              },
+              icon: const Icon(Icons.delete),
+            ),
+          ),
         );
       },
     );

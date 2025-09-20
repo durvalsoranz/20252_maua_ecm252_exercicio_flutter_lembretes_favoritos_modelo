@@ -17,9 +17,15 @@ class _LembretesPageState extends State<LembretesPage> {
     final texto = valor.trim();
     if (texto.isEmpty) return;
     setState(() {
-      _lembretes.insert(0, texto);
+      _lembretes.add(texto);
     });
     _controller.clear();
+  }
+
+  void _removerLembrete(int index) {
+    setState(() {
+      _lembretes.removeAt(index);
+    });
   }
 
   @override
@@ -37,7 +43,12 @@ class _LembretesPageState extends State<LembretesPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(child: ListaLembretes(lembretes: _lembretes)),
+            Expanded(
+              child: ListaLembretes(
+                lembretes: _lembretes,
+                onRemoverLembrete: _removerLembrete,
+              ),
+            ),
             const SizedBox(height: 12),
             InputWidget(controller: _controller, onSubmit: _adicionarLembrete),
           ],
